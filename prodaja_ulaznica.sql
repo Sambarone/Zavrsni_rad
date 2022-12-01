@@ -14,59 +14,59 @@ use aplikacija;
 
 
 
-create table događaj (
+create table dogadaj (
 	sifra int not null primary key auto_increment,
 	naziv varchar (50) not null,
-	datum_događaja date not null,
-	lokacija int not null,
-	kategorija int not null,
-	cijena decimal (18,2) not null
+	datum_događaja date ,
+	lokacija int ,
+	kategorija int ,
+	cijena decimal (18,2) 
 	
 );
 
 create table ulaznica (
 	sifra int not null primary key auto_increment,
-	račun int not null,
-	događaj int not null,
-	količina int not null
+	racun int,
+	dogadaj int ,
+	količina int
 	
 );
 
-create table račun (
+create table racun (
 	sifra int not null primary key auto_increment,
-	kupac int not null,
-	datum_kupnje date not null,
+	kupac int ,
+	datum_kupnje date ,
 	nacin_plačanja varchar (50)
 
 );
 
 create table kupac (
 	sifra int not null primary key auto_increment,
-	ime varchar (50) not null,
-	prezime varchar (50) not null,
+	ime varchar (50) ,
+	prezime varchar (50) ,
 	datum_rođenja date,
-	e_mail varchar (50) not null
+	e_mail varchar (50) 
 
 );
 
 create table lokacija (
 	sifra int not null primary key auto_increment,
-	naziv varchar (50) not null,
-	adresa varchar(50) not null,
+	naziv varchar (50),
+	adresa varchar(50),
 	država varchar (50)
 	
 );
 create table kategorija (
 	sifra int not null primary key auto_increment,
-	naziv varchar (50) not null
+	naziv varchar (50) 
 );
 
-alter table događaj add foreign key (lokacija) references lokacija (sifra); 
-alter table događaj add foreign key (kategorija) references kategorija (sifra); 
+alter table dogadaj add foreign key (lokacija) references lokacija (sifra); 
+alter table dogadaj add foreign key (kategorija) references kategorija (sifra); 
 
-alter table ulaznica add foreign key (događaj) references događaj(sifra);
-alter table ulaznica add foreign key (račun) references račun (sifra);
+alter table ulaznica add foreign key (dogadaj) references dogadaj(sifra);
+alter table ulaznica add foreign key (racun) references racun (sifra);
 
-alter table račun add foreign key (kupac) references kupac (sifra);
+alter table racun add foreign key (kupac) references kupac (sifra);
 
 
