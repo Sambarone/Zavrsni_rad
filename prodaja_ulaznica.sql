@@ -17,48 +17,49 @@ use aplikacija;
 create table dogadaj (
 	sifra int not null primary key auto_increment,
 	naziv varchar (50) not null,
-	datum_događaja date ,
-	lokacija int ,
-	kategorija int ,
+	datum_dogadaja date not null,
+	lokacija int not null,
+	kategorija int not null,
 	cijena decimal (18,2) 
 	
 );
 
 create table ulaznica (
 	sifra int not null primary key auto_increment,
-	racun int,
-	dogadaj int ,
-	količina int
+	racun int not null,
+	dogadaj int not null,
+	količina int not null
 	
 );
 
 create table racun (
 	sifra int not null primary key auto_increment,
-	kupac int ,
-	datum_kupnje date ,
-	nacin_plačanja varchar (50)
+	kupac int not null,
+	datum_kupnje date not null,
+	nacin_placanja varchar (50) not null
 
 );
 
 create table kupac (
 	sifra int not null primary key auto_increment,
-	ime varchar (50) ,
-	prezime varchar (50) ,
-	datum_rođenja date,
-	e_mail varchar (50) 
+	ime varchar (50) not null,
+	prezime varchar (50) not null,
+	datum_rodenja date,
+	e_mail varchar (50) not null,
+	lozinka varchar(50) not null
 
 );
 
 create table lokacija (
 	sifra int not null primary key auto_increment,
-	naziv varchar (50),
+	naziv varchar (50) not null,
 	adresa varchar(50),
-	država varchar (50)
+	kapacitet int not null
 	
 );
 create table kategorija (
 	sifra int not null primary key auto_increment,
-	naziv varchar (50) 
+	naziv varchar (50) not null
 );
 
 alter table dogadaj add foreign key (lokacija) references lokacija (sifra); 
