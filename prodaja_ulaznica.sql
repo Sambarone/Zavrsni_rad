@@ -53,6 +53,7 @@ create table kupac (
 create table lokacija (
 	sifra int not null primary key auto_increment,
 	naziv varchar (50) not null,
+	mjesto varchar (50),
 	adresa varchar(50),
 	kapacitet int not null
 	
@@ -84,13 +85,13 @@ values (null,'Sport'),(null,'Glazba'),
 (null,'Ostalo');
 
 
-insert into lokacija(sifra,naziv,adresa,kapacitet)
-values(null,'Gradski vrt','Osijek, M. Marulića 11',30000),
-(null,'Gradsko kazalište Joze Ivakića','Vinkovci, M.A. Reljkovića bb',500),
-(null,'Dovrana Gradski vrt','Osijek, M. Marulića 10',5000),
-(null,'Stadion Maksimir','Zagreb, Maksimirska 12',40000), 
-(null,'Dom kulture','Vukovar, Blage Zadre 19',350),
-(null,'Dom sportova','Zagreb, Slavonska 58',3500);
+insert into lokacija(sifra,naziv,mjesto,adresa,kapacitet)
+values(null,'Gradski vrt','Osijek', 'M. Marulića 11',30000),
+(null,'Gradsko kazalište Joze Ivakića','Vinkovci',' M.A. Reljkovića bb',500),
+(null,'Dovrana Gradski vrt','Osijek', 'M. Marulića 10',5000),
+(null,'Stadion Maksimir','Zagreb', 'Maksimirska 12',40000), 
+(null,'Dom kulture','Vukovar', 'Blage Zadre 19',350),
+(null,'Dom sportova','Zagreb', 'Slavonska 58',3500);
 
 
 insert into dogadaj(sifra,naziv,datum_dogadaja,lokacija,kategorija,cijena)
